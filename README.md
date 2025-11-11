@@ -99,6 +99,9 @@ Servidor disponível em:
 arduino
 Copiar código
 http://localhost:3000
+
+--- 
+
 🔐 Autenticação e Autorização
 O sistema utiliza JWT (JSON Web Token) para autenticar usuários e proteger rotas privadas.
 
@@ -121,7 +124,11 @@ Envia o token no cabeçalho das requisições:
 makefile
 Copiar código
 Authorization: Bearer seu_token_aqui
+
+--- 
+
 🧠 Funcionalidades Principais
+ 
 👤 Usuários (/users)
 Criar usuários (apenas ADMIN)
 
@@ -161,6 +168,8 @@ aceita
 
 recusada
 
+---
+
 🧪 Testes de API
 Você pode testar todas as rotas usando Insomnia ou Postman.
 
@@ -189,11 +198,15 @@ POST	/applications	Criar nova candidatura
 PUT	/applications/:id	Atualizar status
 DELETE	/applications/:id	Remover candidatura
 
+----
+
 🧾 Variáveis de Ambiente (.env)
 Variável	Descrição	Exemplo
 DATABASE_URL	Caminho do banco de dados	file:./dev.db
 JWT_SECRET	Chave usada para gerar tokens JWT	supersecretkey
 PORT	Porta do servidor	3000
+
+----
 
 🧰 Scripts Disponíveis
 Script	Descrição
@@ -201,6 +214,9 @@ npm run dev	Inicia o servidor em modo desenvolvimento
 npm run build	Compila o TypeScript
 npm start	Executa o servidor compilado
 npx prisma studio	Abre o painel visual do Prisma
+
+--- 
+
 
 📘 Exemplo de Registro
 json
@@ -212,6 +228,10 @@ POST /auth/register
   "password": "123456",
   "role": "CLIENT"
 }
+
+---
+
+
 📘 Exemplo de Login
 json
 Copiar código
@@ -220,6 +240,11 @@ POST /auth/login
   "email": "tiago@email.com",
   "password": "123456"
 }
+
+
+---
+
+
 🧱 Tratamento de Erros
 Erros centralizados no utilitário handleError.ts
 
@@ -230,6 +255,10 @@ Respostas padronizadas de erro em JSON:
 json
 Copiar código
 { "error": "Mensagem de erro descritiva" }
+
+---
+
+
 ✨ Autor
 Desenvolvido por @calmadogs
 Projeto criado para fins de estudo e portfólio, com foco em boas práticas de backend moderno usando Node.js + Prisma + TypeScript.
