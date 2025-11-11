@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    // Pastas do projeto
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Configuração do Node
+    "module": "commonjs",       // melhor para backend Node (ou "nodenext" se quiser ESM)
+    "target": "es2022",         // moderno, mas compatível com Node atual
+    "moduleResolution": "node",
+
+    // Tipagem e segurança
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    // Source maps para debug
+    "sourceMap": true
+  }
+}

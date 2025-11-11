@@ -1,0 +1,62 @@
+  generator client {
+    provider = "prisma-client-js"
+  }
+
+  datasource db {
+    provider = "sqlite"
+    url      = "file:./dev.db" // banco local SQLite
+  }
+
+  model User {
+    id              Int       @id @default(autoincrement())
+    name            String
+    email           String    @unique
+    password        String
+    role            String
+    bio             String?
+    avatarUrl       String?
+    skills          UserSkill[]
+    applications    Application[]  @relation("UserApplications")
+    projectsCreated Project[]      @relation("UserProjects")
+    createdAt       DateTime       @default(now())
+    updatedAt       DateTime       @updatedAt
+  }
+
+  model Project {
+    id           Int       @id @default(autoincrement())
+    title        String
+    description  String
+    skills       ProjectSkill[]
+    budget       Float
+    deadline     DateTime
+    creator      User      @relation("UserProjects", fields: [creatorId], references: [id], onDelete: Cascade)
+    creatorId    Int
+    applications Application[] @relation("ProjectApplications")
+    createdAt    DateTime   @default(now())
+    updatedAt    DateTime   @updatedAt
+  }
+
+  model UserSkill {
+    id     Int    @id @default(autoincrement())
+    name   String
+    user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId Int
+  }
+
+  model ProjectSkill {
+    id        Int     @id @default(autoincrement())
+    name      String
+    project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+    projectId Int
+  }
+
+  model Application {
+    id           Int      @id @default(autoincrement())
+    freelancer   User     @relation("UserApplications", fields: [freelancerId], references: [id], onDelete: Cascade)
+    freelancerId Int
+    project      Project  @relation("ProjectApplications", fields: [projectId], references: [id], onDelete: Cascade)
+    projectId    Int
+    status       String   @default("PENDING")
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+  }
