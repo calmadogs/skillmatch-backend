@@ -18,38 +18,37 @@ API desenvolvida para gerenciar usuários, projetos e candidaturas em uma plataf
 
 ---
 
+```markdown
 ## 📂 Estrutura de Pastas
 
+```plaintext
 src/
 ├── controllers/ # Regras de negócio e lógica das rotas
-│ ├── authController.ts
-│ ├── userController.ts
-│ ├── projectController.ts
-│ └── applicationController.ts
+│   ├── authController.ts
+│   ├── userController.ts
+│   ├── projectController.ts
+│   └── applicationController.ts
 │
 ├── routes/ # Definição das rotas
-│ ├── authRoutes.ts
-│ ├── userRoutes.ts
-│ ├── projectRoutes.ts
-│ └── applicationRoutes.ts
+│   ├── authRoutes.ts
+│   ├── userRoutes.ts
+│   ├── projectRoutes.ts
+│   └── applicationRoutes.ts
 │
 ├── middleware/ # Autenticação e autorização
-│ ├── authMiddleware.ts
-│ └── authorization.ts
+│   ├── authMiddleware.ts
+│   └── authorization.ts
 │
 ├── prisma/ # Configuração do Prisma ORM e schema
-│ └── schema.prisma
+│   └── schema.prisma
 │
 ├── utils/ # Funções auxiliares (hash, validações, erros)
-│ ├── hashUtils.ts
-│ ├── generateToken.ts
-│ ├── handleError.ts
-│ └── validateEmail.ts
+│   ├── hashUtils.ts
+│   ├── generateToken.ts
+│   ├── handleError.ts
+│   └── validateEmail.ts
 │
 └── index.ts # Ponto de entrada do servidor
-
-yaml
-Copiar código
 
 ---
 
@@ -58,14 +57,17 @@ Copiar código
 ### 1️⃣ Clonar o repositório
 ```bash
 git clone https://github.com/calmadogs/skillmatch-backend.git
+
 2️⃣ Acessar a pasta do projeto
 bash
 Copiar código
 cd skillmatch-backend
+
 3️⃣ Instalar dependências
 bash
 Copiar código
 npm install
+
 4️⃣ Criar e configurar o arquivo .env
 env
 Copiar código
@@ -73,18 +75,20 @@ DATABASE_URL="file:./dev.db"
 JWT_SECRET="supersecretkey"
 PORT=3000
 💡 Caso utilize PostgreSQL:
-
 ini
 Copiar código
 DATABASE_URL="postgresql://usuario:senha@localhost:5432/skillmatch"
+
 5️⃣ Gerar o banco de dados Prisma
 bash
 Copiar código
 npx prisma migrate dev --name init
+
 6️⃣ Rodar em modo de desenvolvimento
 bash
 Copiar código
 npm run dev
+
 7️⃣ Rodar em produção
 bash
 Copiar código
