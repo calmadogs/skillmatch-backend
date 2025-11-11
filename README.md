@@ -217,7 +217,6 @@ npx prisma studio	Abre o painel visual do Prisma
 
 --- 
 
-
 📘 Exemplo de Registro
 json
 Copiar código
@@ -231,7 +230,6 @@ POST /auth/register
 
 ---
 
-
 📘 Exemplo de Login
 json
 Copiar código
@@ -241,9 +239,7 @@ POST /auth/login
   "password": "123456"
 }
 
-
 ---
-
 
 🧱 Tratamento de Erros
 Erros centralizados no utilitário handleError.ts
@@ -257,7 +253,6 @@ Copiar código
 { "error": "Mensagem de erro descritiva" }
 
 ---
-
 
 ✨ Autor
 Desenvolvido por @calmadogs
