@@ -6,6 +6,7 @@ import userRoutes from "./routes/userRoutes";
 import projectRoutes from "./routes/projectRoutes";
 import applicationRoutes from "./routes/applicationRoutes";
 import authRoutes from "./routes/authRoutes";
+import getMeRoutes from "./routes/getMeRoutes";
 
 dotenv.config();
 
@@ -20,6 +21,9 @@ app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/projects", projectRoutes);
 app.use("/applications", applicationRoutes);
+
+// GET /me
+app.use("/me", getMeRoutes);
 
 // Rota de teste
 app.get("/", (req, res) => res.send("SkillMatch Backend rodando!"));
