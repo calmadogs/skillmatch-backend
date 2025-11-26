@@ -6,20 +6,19 @@ import {
   deleteApplication,
 } from "../controllers/applicationController";
 import { authenticateToken } from "../middleware/authMiddleware";
-import { isAdmin } from "../middleware/authorization";
 
 const router = Router();
 
-// GET - Todas as aplicações (somente admin)
-router.get("/", authenticateToken, isAdmin, getAllApplications);
+// GET - Listar aplicações (permissões tratadas no controller)
+router.get("/", authenticateToken, getAllApplications);
 
-// POST - Criar nova aplicação (qualquer usuário logado)
+// POST - Criar nova aplicação
 router.post("/", authenticateToken, createApplication);
 
-// PUT - Atualizar aplicação (dono ou admin)
+// PUT - Atualizar aplicação
 router.put("/:id", authenticateToken, updateApplication);
 
-// DELETE - Deletar aplicação (dono ou admin)
+// DELETE - Deletar aplicação
 router.delete("/:id", authenticateToken, deleteApplication);
 
 export default router;

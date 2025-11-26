@@ -63,6 +63,28 @@
     }
   };
 
+  // GET - Obter projeto por ID
+  export const getProjectById = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  try {
+    const project = await prisma.project.findUnique({
+      where: { id: Number(id) },
+      include: { skills: true, creator: true, applications: true },
+    });
+
+    if (!project) {
+      return res.status(404).json({ message: "Projeto não encontrado" });
+    }
+
+    res.json(project);
+  } catch (error) {
+    console.error("Erro ao buscar projeto por ID:", error);
+    res.status(500).json({ error: "Erro interno do servidor" });
+  }
+};
+
+
   // POST - Criar novo projeto (somente CLIENT)
   export const createProject = async (req: Request, res: Response) => {
     try {

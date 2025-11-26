@@ -4,6 +4,7 @@ import {
   createProject,
   updateProject,
   deleteProject,
+  getProjectById,
 } from "../controllers/projectController";
 import { authenticateToken } from "../middleware/authMiddleware";
 
@@ -11,6 +12,10 @@ const router = Router();
 
 // GET - Listar todos os projetos
 router.get("/", authenticateToken, getAllProjects);
+
+
+// GET - Obter projeto por ID
+router.get("/:id", authenticateToken, getProjectById);
 
 // POST - Criar novo projeto (CLIENT)
 router.post("/", authenticateToken, createProject);
