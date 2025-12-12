@@ -7,6 +7,9 @@ interface UserPayload extends JwtPayload {
 }
 
 export const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
+
+  console.log("HEADER RECEBIDO:", req.headers.authorization);
+
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
